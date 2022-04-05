@@ -18,19 +18,18 @@ class Stack {
     return this.stack[this.stack.length - 1];
   }
 }
-const stack = new Stack;
-// stack.push('hello');
-// stack.push('bye');
-// stack.push('see ya');
-// stack.push('howdy');
-// console.log(stack);
-
-// stack.pop();
-// console.log(stack);
-
-// stack.peek();
-
-// console.log('peek', stack.peek());
+const stack = new Stack();
+stack.push('fox');
+stack.push('goose');
+stack.push('lizard');
+console.log(stack.pop()); // 'lizard'
+console.log(stack.peek()); // 'goose'
+console.log(stack.pop()); // 'goose'
+stack.push('llama');
+console.log(stack.pop()); // 'llama'
+console.log(stack.peek()); // 'fox'
+console.log(stack.pop()); // 'fox'
+console.log(stack.pop()); // null
 
 
 
@@ -70,7 +69,7 @@ queue.enqueue('goose');
 queue.enqueue('lizard');
 console.log('queue', queue);
 console.log(queue.dequeue()); // 'fox'
-console.log('hasNext?', queue.hasNext()); // true
+console.log(queue.hasNext()); // true
 console.log(queue.dequeue()); // 'goose'
 queue.enqueue('llama');
 console.log(queue.dequeue()); // 'lizard'
