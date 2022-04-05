@@ -138,13 +138,26 @@ class LinkedListNode {
       this.next.add(node);
     }
   }
+
+  getList() {
+    // check to see if there is already a next property
+    if (!this.next) {
+    // Just returns the data value
+      return this.data;
+    // If there is a this.next return the data value
+    } else {
+    // Returning this.data for this instance and recursively calling getlist on this.next
+      return this.data + ' ' + this.next.getList();
+    }
+  }
+
 }
 
 const root = new LinkedListNode('A');
 const nodeB = new LinkedListNode('B');
 root.add(nodeB);
 console.log('root', root);
-// console.log(root.getList()); // 'A B'
+console.log(root.getList()); // 'A B'
 const nodeC = new LinkedListNode('C');
 const nodeD = new LinkedListNode('D');
 const nodeE = new LinkedListNode('E');
@@ -152,4 +165,4 @@ root.add(nodeC);
 root.add(nodeD);
 root.add(nodeE);
 console.log('nodeD', nodeD);
-// console.log(root.getList()); // 'A B C D E'
+console.log(root.getList()); // 'A B C D E'
