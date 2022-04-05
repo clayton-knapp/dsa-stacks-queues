@@ -77,3 +77,40 @@ console.log(queue.hasNext()); // true
 console.log(queue.dequeue()); // 'llama'
 console.log(queue.hasNext()); // false
 console.log(queue.dequeue()); // null
+
+
+
+
+// Dan's Queue
+
+class Queue2 {
+  #list = [];
+
+  enqueue(item) {
+    this.#list.push(item);
+  }
+
+  dequeue() {
+    return this.#list.length ? this.#list.shift() : null;
+  }
+
+  hasNext() {
+    return !!this.#list.length; //!! returns booleanized value
+  }
+}
+
+
+const queue2 = new Queue2();
+queue2.enqueue('fox');
+queue2.enqueue('goose');
+queue2.enqueue('lizard');
+console.log('queue', queue2);
+console.log(queue2.dequeue()); // 'fox'
+console.log(queue2.hasNext()); // true
+console.log(queue2.dequeue()); // 'goose'
+queue2.enqueue('llama');
+console.log(queue2.dequeue()); // 'lizard'
+console.log(queue2.hasNext()); // true
+console.log(queue2.dequeue()); // 'llama'
+console.log(queue2.hasNext()); // false
+console.log(queue2.dequeue()); // null
