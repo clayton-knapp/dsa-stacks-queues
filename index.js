@@ -118,13 +118,14 @@ class Queue {
 
 
 class LinkedListNode {
-  // #data = '';
-  // #next = '';
+  // eslint-disable-next-line 
+  #data = '';
+  #next = null;
 
   constructor(data)
   {
-    this.data = data;
-    this.next = null; //another instance of LinkedListNode initialized as null
+    this.#data = data;
+    this.#next = null; //another instance of LinkedListNode initialized as null
   }
 
   add(node) {
@@ -143,11 +144,11 @@ class LinkedListNode {
     // check to see if there is already a next property
     if (!this.next) {
     // Just returns the data value
-      return this.data;
+      return this.#data;
     // If there is a this.next return the data value
     } else {
     // Returning this.data for this instance and recursively calling getlist on this.next
-      return this.data + ' ' + this.next.getList();
+      return this.#data + ' ' + this.next.getList();
     }
   }
 
