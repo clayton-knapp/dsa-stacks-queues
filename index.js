@@ -118,7 +118,6 @@ class Queue {
 
 
 class LinkedListNode {
-  // eslint-disable-next-line 
   #data = '';
   #next = null;
 
@@ -185,12 +184,18 @@ class BinaryTreeNode {
       //edge case if duplicate value just return cuz already in tree
       return;
     }
+    // if node value is less than this valu go left
     if(node.value < this.value) {
+      // if this .left doesnt exist make this.left node
       if(!this.left) this.left = node;
+      // else recursively run add on this.left passing in node
       else this.left.add(node);
     }
+    //if node value is greater than this.value go right
     else {
+      // if this.right doesnt exist make this.right equal to node passed in
       if(!this.right) this.right = node;
+      //if there is a this.right, run add on that this.right passing in node
       else this.right.add(node);
     }
   }
@@ -235,17 +240,31 @@ class PersonTreeNode {
 
   findPerson(name) {
     // Implement me!
-    if(name === this.value) return this.value;
+    //edge case if person is same as root
+    if(name === this.value) return this.person;
 
+    //if name < this value go left
     if(name < this.value) {
-      if(name === this.left) return this.left;
-      else this.left.findPerson(name);
+      //if this.left doesnt exist return null
+      if(!this.left) return null;
+      // else return findPerson method on this.left passing in name
+      else return this.left.findPerson(name);
+    }
+    //if name > this.value go right
+    else {
+      //if this.right doesnt exist return null
+      if(!this.right) return null;
+      //else return findPerson method on this.right passing in name
+      else return this.right.findPerson(name);
     }
 
-    else {
-      if(name === this.right) return this.right;
-      else this.right.findPerson(name);
-    }
+    //MARTY's REFACTOR
+    // //which direction to go
+    // const dir = name < this.value ? 'left' : 'right';
+    // //if the node doesnt exist return null
+    // if(!this[dir]) return null;
+    // //delegate to the left or right
+    // return this[dir].findPerson(name);
 
     }
 }
@@ -261,7 +280,7 @@ Blake.add(Amy);
 Blake.add(Dave);
 Blake.add(Cliff);
 
-// console.log('Blake', Blake);
+console.log('Blake', Blake);
 
 
-console.log(Blake.findPerson('Cliff'));
+console.log('find Cliff?', Blake.findPerson('Cliff'));
